@@ -13,48 +13,41 @@
 
 <!-- 조회 페이지 내용 -->
 
-<h1>View Page</h1>
+<div class="container mt-5">
+  <h1 class="text-center mb-4">View Page</h1>
 
-<!-- 카드 1 -->
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Hermes</h5>
-    <p class="card-text">Founded: 1837</p>
-    <p class="card-text">Founder: Thierry Hermes</p>
-    <p class="card-text">Location: Paris, France</p>
-    
-    <!-- [Edit] 버튼 -->
-    <a href="/edit" class= "btn btn-primary">Edit </a >
-    
-    <!-- [Delete] 버튼 -->
-    <button onclick ="confirmDelete()"class ="btn btn-danger ">Delete </button >
+  <!-- 카드 1 -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Hermes</h5>
+      <p class="card-text"><strong>Founded:</strong> 1837</p>
+      <p class="card-text"><strong>Founder:</strong> Thierry Hermes</p>
+      <p class="card-text"><strong>Location:</strong> Paris, France</p>
+
+      <!-- [Edit] 버튼 -->
+      <a href="/edit" class= "btn btn-primary">Edit </a >
+
+      <!-- [Delete] 버튼 -->
+      <button onclick ="confirmDelete()"class ="btn btn-danger ">Delete </button >
+    </div >
   </div >
+
+  <!-- 카드 2 (Dior) -->
+
+  ...
+
 </div>
-
-<!-- 카드 2 (Dior) -->
-
-...
-
-<script>
-// [Delete] 버튼 클릭 시 삭제 확인 창 표시
-function confirmDelete () {
-if ( confirm("게시물을 삭제할까요 ?")) {
-// 삭제 작업 수행
-window.location.href = "/delete ";
-}
-}
-</script>
 
 <!-- Brand Information 영역 -->
 
-<div id ="brand-info" style ="display : none; ">
-<h2 id ="brand-name "></ h2 >
-<p > Founded :< span id ="founded "></ span ></ p >
-<p > Founder :< span id ="founder "></ span ></ p >
-<p > Location :< span id ="location "></ span ></ p >
+<div id ="brand-info " style ="display : none; ">
+<h2 id ="brand-name "></h2 >
+<p > Founded :<span id ="founded"></span ></p>
+<p > Founder :<span id ="founder "></span ></p>
+<p > Location :<span id ="location "></span ></p>
 </div>
 
-<script>
+<script >
 
 // View 링크 클릭 시 Brand Information 영역 업데이트
 
