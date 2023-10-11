@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+   <!-- 필요한 메타 태그와 Bootstrap CSS 링크 -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+   <!-- my.css 연결 -->
+   <link href="my.css" rel="stylesheet">
+   
+   <!-- 나머지 head 내용 -->
+</head>
+<body>
+
+<!-- 조회 페이지 내용 -->
+
+<h1>View Page</h1>
+
+<!-- 데이터 출력 및 상세 정보 -->
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Record Title</h5>
+    <p class="card-text">Record Description</p>
+    
+    <!-- [Edit] 버튼 -->
+    <a href="/edit" class="btn btn-primary">Edit</a>
+    
+    <!-- [Delete] 버튼 -->
+    <button onclick="confirmDelete()" class="btn btn-danger">Delete</button>
+  </div>
+</div>
+
+<script>
+  // [Delete] 버튼 클릭 시 삭제 확인 창 표시
+  function confirmDelete() {
+    if (confirm("게시물을 삭제할까요?")) {
+      // 삭제 작업 수행
+      window.location.href = "/delete";
+    }
+  }
+</script>
+
+</body>
+</html> 
