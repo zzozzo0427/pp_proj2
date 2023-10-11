@@ -15,30 +15,67 @@
 
 <h1>View Page</h1>
 
-<!-- 데이터 출력 및 상세 정보 -->
-
+<!-- 카드 1 -->
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">Record Title</h5>
-    <p class="card-text">Record Description</p>
+    <h5 class="card-title">Hermes</h5>
+    <p class="card-text">Founded: 1837</p>
+    <p class="card-text">Founder: Thierry Hermes</p>
+    <p class="card-text">Location: Paris, France</p>
     
     <!-- [Edit] 버튼 -->
-    <a href="/edit" class="btn btn-primary">Edit</a>
+    <a href="/edit" class= "btn btn-primary">Edit </a >
     
     <!-- [Delete] 버튼 -->
-    <button onclick="confirmDelete()" class="btn btn-danger">Delete</button>
-  </div>
+    <button onclick ="confirmDelete()"class ="btn btn-danger ">Delete </button >
+  </div >
+</div>
+
+<!-- 카드 2 (Dior) -->
+
+...
+
+<script>
+// [Delete] 버튼 클릭 시 삭제 확인 창 표시
+function confirmDelete () {
+if ( confirm("게시물을 삭제할까요 ?")) {
+// 삭제 작업 수행
+window.location.href = "/delete ";
+}
+}
+</script>
+
+<!-- Brand Information 영역 -->
+
+<div id ="brand-info" style ="display : none; ">
+<h2 id ="brand-name "></ h2 >
+<p > Founded :< span id ="founded "></ span ></ p >
+<p > Founder :< span id ="founder "></ span ></ p >
+<p > Location :< span id ="location "></ span ></ p >
 </div>
 
 <script>
-  // [Delete] 버튼 클릭 시 삭제 확인 창 표시
-  function confirmDelete() {
-    if (confirm("게시물을 삭제할까요?")) {
-      // 삭제 작업 수행
-      window.location.href = "/delete";
-    }
-  }
+
+// View 링크 클릭 시 Brand Information 영역 업데이트
+
+document.querySelectorAll (" . card - body a ").forEach ( function( link ) {
+link.addEventListener (" click ", function( event ) {
+event.preventDefault ();
+
+var card = link.closest (" . card ");
+var brandName = card.querySelector (" . card - title ").textContent;
+var founded = card.querySelector (" . card - text:nth - child(1) ").textContent.split(":")[1].trim();
+var founder = card.querySelector (" . card - text:nth - child(2) ").textContent.split(":")[1].trim();
+var location = card.querySelector (" . card - text:nth - child(3) ").textContent.split(":")[1].trim();
+
+document.getElementById("brand-name").textContent = brandName;
+document.getElementById("founded").textContent = founded;
+document.getElementById("founder").textContent = founder;
+document.getElementById("location").textContent = location;
+
+document.getElementById("brand-info").style.display = "block";
+});
+});
 </script>
 
 </body>
-</html> 
