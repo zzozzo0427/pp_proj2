@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Page</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <style>
+    .container {
+      max-width: 400px;
+      margin-top: 50px;
+    }
+    .error-message {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="text-center mb-4">Edit Page</h1>
+
+  <!-- Form -->
+  <form id="edit-form" onsubmit="return validateForm()" action="/update" method="post">
+    <div class="form-group">
+      <label for="brand-name">Brand Name:</label>
+      <input type="text" class="form-control" id="brand-name" name="brandName" required>
+      <div id="brand-name-error" class="error-message"></div> <!-- 에러 메시지 표시 영역 -->
+    </div>
+
+    <!-- 추가 필드들 -->
+
+    ...
+
+    <button onclick ="confirmUpdate()"class ="btn btn-primary ">Update </button >
+    
+     <!-- [Cancel] 버튼 -->
+     <a href="/view.html "class ="btn btn-secondary ml-2 ">Cancel </a >
+     
+   </form >
+   
+   </div >
+
+<!-- Confirm Update 창 띄우기 -->
+<script >
+function confirmUpdate() {
+var result = confirm("게시물을 수정할까요?");
+if (result) {
+// 확인 버튼 클릭 시 동작할 코드 작성
+console.log("게시물이 수정되었습니다.");
+document.getElementById("edit-form").submit(); // 폼 제출
+} else {
+// 취소 버튼 클릭 시 동작할 코드 작성
+console.log("게시물 수정이 취소되었습니다.");
+}
+}
+
+// 필수 항목 유효성 검사 함수
+function validateForm() {
+var brandName = document.getElementById("brand-name").value;
+
+if (brandName.trim() === "") { // 공백 제거 후 비어있는지 확인
+document.getElementById("brand-name-error").textContent = "Brand Name은 필수 항목입니다.";
+return false; // 폼 제출 중단
+}
+
+return true; // 폼 제출 계속 진행
+}
+</script>
+
+</body>
+</html>
