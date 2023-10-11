@@ -25,14 +25,18 @@
   <!-- Form -->
   <form id="edit-form" onsubmit="return validateForm()" action="/update" method="post">
     <div class="form-group">
-      <label for="brand-name">Brand Name:</label>
-      <input type="text" class="form-control" id="brand-name" name="brandName" required>
-      <div id="brand-name-error" class="error-message"></div> <!-- 에러 메시지 표시 영역 -->
+      <label for="founded">Founded:</label>
+      <input type="text" class="form-control" id="founded" name="founder" required value="[설립]">
+      <div id="founded-error" class="error-message"></div> <!-- 에러 메시지 표시 영역 -->
+
+      <label for="founder">Founder:</label>
+      <input type="text" class="form-control" id="founder" name="founder" required value="[설립자]">
+      <div id="founder-error" class="error-message"></div> <!-- 에러 메시지 표시 영역 -->
+
+      <label for="location">Location:</label>
+      <input type="text" class="form-control" id="location" name="location" required value="[소재지]">
+      <div id="location-error" class="error-message"></div> <!-- 에러 메시지 표시 영역 -->
     </div>
-
-    <!-- 추가 필드들 -->
-
-    ...
 
     <button onclick ="confirmUpdate()"class ="btn btn-primary ">Update </button >
     
@@ -59,10 +63,16 @@ console.log("게시물 수정이 취소되었습니다.");
 
 // 필수 항목 유효성 검사 함수
 function validateForm() {
-var brandName = document.getElementById("brand-name").value;
+var brandName = document.getElementById("founded-name").value;
+var brandName = document.getElementById("founder-name").value;
+var brandName = document.getElementById("location-name").value;
+
 
 if (brandName.trim() === "") { // 공백 제거 후 비어있는지 확인
-document.getElementById("brand-name-error").textContent = "Brand Name은 필수 항목입니다.";
+document.getElementById("founded-error").textContent = "설립은 필수 항목입니다.";
+document.getElementById("founder-error").textContent = "설립자는 필수 항목입니다.";
+document.getElementById("location-error").textContent = "소재지는 필수 항목입니다.";
+
 return false; // 폼 제출 중단
 }
 
