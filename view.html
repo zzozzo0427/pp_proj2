@@ -7,26 +7,9 @@
 
     <!-- my.css 연결 -->
     <link href="my.css" rel="stylesheet">
-
-    <!-- 나머지 head 내용 -->
-
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .card {
-            max-width: 400px;
-            margin-bottom: 20px;
-        }
-    </style>
-
 </head>
 
-<body class="d-flex justify-content-center align-items-center">
+<body class="d-flex justify-content-center align-items-center" style="height: 100vh;">
 
     <!-- 조회 페이지 내용 -->
 
@@ -34,8 +17,8 @@
         <h1 class="text-center mb-4">View Page</h1>
 
         <!-- 카드 1 -->
-        <div class="card text-center">
-            <div class="card-body">
+        <div class="card" style="max-width: 400px;">
+            <div class="card-body text-center">
                 <h5 class="card-title">Hermes</h5>
                 <p class="card-text"><strong>Founded:</strong> 1837</p>
                 <p class="card-text"><strong>Founder:</strong> Thierry Hermes</p>
