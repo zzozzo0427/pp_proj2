@@ -8,67 +8,69 @@
    <link href="my.css" rel="stylesheet">
    
    <!-- 나머지 head 내용 -->
+
 </head>
-<body>
+<body class="d-flex justify-content-center align-items-center">
 
-<!-- 조회 페이지 내용 -->
-
-<div class="container mt-5">
-  <h1 class="text-center mb-4">View Page</h1>
-
-  <!-- 카드 1 -->
-  <div class="card mb-4">
-    <div class="card-body">
-      <h5 class="card-title">Hermes</h5>
-      <p class="card-text"><strong>Founded:</strong> 1837</p>
-      <p class="card-text"><strong>Founder:</strong> Thierry Hermes</p>
-      <p class="card-text"><strong>Location:</strong> Paris, France</p>
-
-      <!-- [Edit] 버튼 -->
-      <a href="/edit" class= "btn btn-primary">Edit </a >
-
-      <!-- [Delete] 버튼 -->
-      <button onclick ="confirmDelete()"class ="btn btn-danger ">Delete </button >
-    </div >
-  </div >
-
-  <!-- 카드 2 (Dior) -->
-
-  ...
-
-</div>
-
-<!-- Brand Information 영역 -->
-
-<div id ="brand-info " style ="display : none; ">
-<h2 id ="brand-name "></h2 >
-<p > Founded :<span id ="founded"></span ></p>
-<p > Founder :<span id ="founder "></span ></p>
-<p > Location :<span id ="location "></span ></p>
-</div>
-
-<script >
-
-// View 링크 클릭 시 Brand Information 영역 업데이트
-
-document.querySelectorAll (" . card - body a ").forEach ( function( link ) {
-link.addEventListener (" click ", function( event ) {
-event.preventDefault ();
-
-var card = link.closest (" . card ");
-var brandName = card.querySelector (" . card - title ").textContent;
-var founded = card.querySelector (" . card - text:nth - child(1) ").textContent.split(":")[1].trim();
-var founder = card.querySelector (" . card - text:nth - child(2) ").textContent.split(":")[1].trim();
-var location = card.querySelector (" . card - text:nth - child(3) ").textContent.split(":")[1].trim();
-
-document.getElementById("brand-name").textContent = brandName;
-document.getElementById("founded").textContent = founded;
-document.getElementById("founder").textContent = founder;
-document.getElementById("location").textContent = location;
-
-document.getElementById("brand-info").style.display = "block";
-});
-});
-</script>
-
-</body>
+    <!-- 조회 페이지 내용 -->
+    
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">View Page</h1>
+    
+      <!-- 카드 1 -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Hermes</h5>
+          <p class="card-text"><strong>Founded:</strong> 1837</p>
+          <p class="card-text"><strong>Founder:</strong> Thierry Hermes</p>
+          <p class="card-text"><strong>Location:</strong> Paris, France</p>
+    
+          <!-- [Edit] 버튼 -->
+          <a href="/edit" class= "btn btn-primary">Edit </a >
+    
+          <!-- [Delete] 버튼 -->
+          <button onclick ="confirmDelete()"class ="btn btn-danger ">Delete </button >
+        </div >
+      </div >
+    
+      <!-- 카드 2 (Dior) -->
+    
+      ...
+    
+    </div>
+    
+    <!-- Brand Information 영역 -->
+    
+    <div id ="brand-info " style ="display : none; ">
+    <h2 id ="brand-name "></h2 >
+    <p > Founded :<span id ="founded"></span ></p>
+    <p > Founder :<span id ="founder "></span ></p>
+    <p > Location :<span id ="location "></span ></p>
+    </div>
+    
+    <script >
+    
+    // View 링크 클릭 시 Brand Information 영역 업데이트
+    
+    document.querySelectorAll (" . card - body a ").forEach ( function( link ) {
+    link.addEventListener (" click ", function( event ) {
+    event.preventDefault ();
+    
+    var card = link.closest (" . card ");
+    var brandName = card.querySelector (" . card - title ").textContent;
+    var founded = card.querySelector (" . card - text:nth - child(1) ").textContent.split(":")[1].trim();
+    var founder = card.querySelector (" . card - text:nth - child(2) ").textContent.split(":")[1].trim();
+    var location = card.querySelector (" . card - text:nth - child(3) ").textContent.split(":")[1].trim();
+    
+    document.getElementById("brand-name").textContent = brandName;
+    document.getElementById("founded").textContent = founded;
+    document.getElementById("founder").textContent = founder;
+    document.getElementById("location").textContent = location;
+    
+    document.getElementById("brand-info").style.display = "block";
+    });
+    });
+    </script>
+    
+    </body>
+    
