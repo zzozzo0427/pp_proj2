@@ -19,6 +19,7 @@
   </style>
 
 </head>
+
 <body class="d-flex justify-content-center align-items-center">
 
     <!-- 조회 페이지 내용 -->
@@ -35,16 +36,27 @@
           <p class="card-text"><strong>Location:</strong> Paris, France</p>
     
           <!-- [Edit] 버튼 -->
-          <a href="/edit" class= "btn btn-primary">Edit </a >
+          <a href="/edit.html" class= "btn btn-primary">Edit </a >
     
           <!-- [Delete] 버튼 -->
-          <button onclick ="confirmDelete()"class ="btn btn-danger ">Delete </button >
+            <button onclick="confirmDelete()" class="btn btn-danger">Delete</button>
+
+            <script>
+            function confirmDelete() {
+            var result = confirm("게시물을 삭제할까요?");
+            if (result) {
+                // 확인 버튼 클릭 시 동작할 코드 작성
+                // 예: 게시물 삭제 로직 실행 등
+                console.log("게시물이 삭제되었습니다.");
+            } else {
+                // 취소 버튼 클릭 시 동작할 코드 작성
+                console.log("게시물 삭제가 취소되었습니다.");
+            }
+            }
+            </script>
+
         </div >
-      </div >
-    
-      <!-- 카드 2 (Dior) -->
-    
-      ...
+    </div>
     
     </div>
     
