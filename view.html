@@ -1,57 +1,87 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="auto">
+
 <head>
-   <!-- 필요한 메타 태그와 Bootstrap CSS 링크 -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-   
-   <!-- my.css 연결 -->
-   <link href="my.css" rel="stylesheet">
-   
-   <!-- 나머지 head 내용 -->
+    <!-- 필요한 메타 태그와 Bootstrap CSS 링크 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-   <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+    <!-- my.css 연결 -->
+    <link href="my.css" rel="stylesheet">
 
-    .card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        max-width: 400px; /* 카드 최대 너비 설정 */
-        margin-bottom: 20px; /* 카드 간격 조정 */
-    }
+    <!-- 나머지 head 내용 -->
 
-  </style>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+    </style>
 
 </head>
 
 <body class="d-flex justify-content-center align-items-center">
 
     <!-- 조회 페이지 내용 -->
-    
-    <div class="container mt-5">
-      <h1 class="text-center mb-4">View Page</h1>
-    
-      <!-- 카드 1 -->
-      <div class="card" style="max-width: 400px;">
-        <div class="card-body text-center">
-          <h5 class="card-title">Hermes</h5>
-          <p class="card-text"><strong>Founded:</strong> 1837</p>
-          <p class="card-text"><strong>Founder:</strong> Thierry Hermes</p>
-          <p class="card-text"><strong>Location:</strong> Paris, France</p>
-    
-          <!-- [Edit] 버튼 -->
-          <a href="/edit.html" class= "btn btn-primary">Edit </a >
-    
-          <!-- [Delete] 버튼 -->
-            <button onclick="confirmDelete()" class="btn btn-danger">Delete</button>
 
-            <script> 
-            function confirmDelete() {
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">View Page</h1>
+
+        <!-- 카드 1 -->
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Hermes</h5>
+                <p class="card-text"><strong>Founded:</strong> 1837</p>
+                <p class="card-text"><strong>Founder:</strong> Thierry Hermes</p>
+                <p class="card-text"><strong>Location:</strong> Paris, France</p>
+
+                <!-- [Edit] 버튼 -->
+                <a href="/edit.html" class="btn btn-primary">Edit</a>
+
+                <!-- [Delete] 버튼 -->
+                <button onclick="confirmDelete()" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Brand Information 영역 -->
+
+    <div id="brand-info" style="display: none;">
+        <h2 id="brand-name"></h2>
+        <p>Founded: <span id="founded"></span></p>
+        <p>Founder: <span id="founder"></span></p>
+        <p>Location: <span id="location"></span></p>
+    </div>
+
+    <script>
+        // View 링크 클릭 시 Brand Information 영역 업데이트
+        document.querySelectorAll(".card-body a").forEach(function (link) {
+            link.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                var card = link.closest(".card");
+                var brandName = card.querySelector(".card-title").textContent;
+                var founded = card.querySelector(".card-text:nth-child(1)").textContent.split(":")[1].trim();
+                var founder = card.querySelector(".card-text:nth-child(2)").textContent.split(":")[1].trim();
+                var location = card.querySelector(".card-text:nth-child(3)").textContent.split(":")[1].trim();
+
+                document.getElementById("brand-name").textContent = brandName;
+                document.getElementById("founded").textContent = founded;
+                document.getElementById("founder").textContent = founder;
+                document.getElementById("location").textContent = location;
+
+                document.getElementById("brand-info").style.display = "block";
+            });
+        });
+
+        function confirmDelete() {
             var result = confirm("게시물을 삭제할까요?");
             if (result) {
                 // 확인 버튼 클릭 시 동작할 코드 작성
@@ -61,46 +91,9 @@
                 // 취소 버튼 클릭 시 동작할 코드 작성
                 console.log("게시물 삭제가 취소되었습니다.");
             }
-            }
-            </script>
-
-        </div >
-    </div>
-    
-    </div>
-    
-    <!-- Brand Information 영역 -->
-    
-    <div id ="brand-info " style ="display : none; ">
-    <h2 id ="brand-name "></h2 >
-    <p > Founded :<span id ="founded"></span ></p>
-    <p > Founder :<span id ="founder "></span ></p>
-    <p > Location :<span id ="location "></span ></p>
-    </div>
-    
-    <script >
-    
-    // View 링크 클릭 시 Brand Information 영역 업데이트
-    
-    document.querySelectorAll (" . card - body a ").forEach ( function( link ) {
-    link.addEventListener (" click ", function( event ) {
-    event.preventDefault ();
-    
-    var card = link.closest (" . card ");
-    var brandName = card.querySelector (" . card - title ").textContent;
-    var founded = card.querySelector (" . card - text:nth - child(1) ").textContent.split(":")[1].trim();
-    var founder = card.querySelector (" . card - text:nth - child(2) ").textContent.split(":")[1].trim();
-    var location = card.querySelector (" . card - text:nth - child(3) ").textContent.split(":")[1].trim();
-    
-    document.getElementById("brand-name").textContent = brandName;
-    document.getElementById("founded").textContent = founded;
-    document.getElementById("founder").textContent = founder;
-    document.getElementById("location").textContent = location;
-    
-    document.getElementById("brand-info").style.display = "block";
-    });
-    });
+        }
     </script>
-    
-    </body>
-    
+
+</body>
+
+</html>
