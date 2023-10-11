@@ -63,20 +63,28 @@ console.log("게시물 수정이 취소되었습니다.");
 
 // 필수 항목 유효성 검사 함수
 function validateForm() {
-var brandName = document.getElementById("founded-name").value;
-var brandName = document.getElementById("founder-name").value;
-var brandName = document.getElementById("location-name").value;
+var founded = document.getElementById("founded").value;
+var founder = document.getElementById("founder").value;
+var locationValue = document.getElementById("location").value;
 
-
-if (brandName.trim() === "") { // 공백 제거 후 비어있는지 확인
-document.getElementById("founded-error").textContent = "설립은 필수 항목입니다.";
-document.getElementById("founder-error").textContent = "설립자는 필수 항목입니다.";
-document.getElementById("location-error").textContent = "소재지는 필수 항목입니다.";
-
+if (founded.trim() === "") { // 공백 제거 후 비어있는지 확인
+document.getElementById("founded-error").textContent = "'Founded'은 필수 항목입니다.";
 return false; // 폼 제출 중단
 }
 
-return true; // 폼 제출 계속 진행
+if (founder.trim() === "") { // 공백 제거 후 비어있는지 확인
+document.getElementById("founder-error").textContent = "'Founder'은 필수 항목입니다.";
+return false; // 폼 제출 중단
+
+}
+
+if (locationValue.trim() === "") { // 공백 제거 후 비어있는지 확인
+    document.getElementById("location-error").textContent = "'Location'은 필수 항목입니다.";
+return false ; //폼 제출 중단
+
+}
+
+return true ;  //폼 제출 계속 진행
 }
 </script>
 
